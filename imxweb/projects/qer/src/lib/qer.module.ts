@@ -63,6 +63,10 @@ import { UserModule } from './user/user.module';
 import { ShoppingCartValidationDetailModule } from './shopping-cart-validation-detail/shopping-cart-validation-detail.module';
 import { RoleMembershipsModule } from './role-management/role-memberships/role-memberships.module';
 import { MaintenanceBannerComponent } from './wport/start/maintenance-banner/maintenance-banner.component';
+// Newsletter module during training
+import { NewsletterModule } from './newsletter/newsletter.module';
+import { NewsletterFeatureComponent } from './newsletter/newsletter-feature/newsletter-feature.component';
+
 
 export function initConfig(config: QerService): () => Promise<any> {
   return () =>
@@ -78,6 +82,13 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: StartComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  // Add newsletter to our routs
+  {
+    path: 'newsletter',
+    component: NewsletterFeatureComponent,
     canActivate: [RouteGuardService],
     resolve: [RouteGuardService],
   },
@@ -112,6 +123,7 @@ const routes: Routes = [
     FkAdvancedPickerModule,
     OpsModule,
     DataExplorerViewModule,
+    NewsletterModule, // Adding newsletter module
   ],
   exports: [StarlingComponent, PasscodeViewerComponent, ObjectOverviewPersonComponent],
   providers: [
