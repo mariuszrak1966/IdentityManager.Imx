@@ -66,6 +66,7 @@ export class QerService {
 
   /** This method defines the menu structure for the portal. */
   // private setupMenu(): void {
+
     // this.menuService.addMenuFactories(
     //   //TODO later #206706
     //   (preProps: string[], __: string[]) => {

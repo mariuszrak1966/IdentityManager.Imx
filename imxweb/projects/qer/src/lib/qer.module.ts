@@ -100,6 +100,7 @@ const routes: Routes = [
   {
     path: 'coe-contact',
     component: CoeContactComponent,
+
     canActivate: [RouteGuardService],
     resolve: [RouteGuardService],
   },
@@ -135,6 +136,7 @@ const routes: Routes = [
     OpsModule,
     DataExplorerViewModule,
     SupportModule
+
   ],
   exports: [StarlingComponent, PasscodeViewerComponent, ObjectOverviewPersonComponent],
   providers: [

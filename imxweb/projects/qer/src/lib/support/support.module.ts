@@ -12,6 +12,7 @@ import { PopupSupportWindowComponent } from './popup-support-window/popup-suppor
     InstructionsComponent,
     NewsletterComponent,
     PopupSupportWindowComponent
+
   ],
   imports: [
     CommonModule

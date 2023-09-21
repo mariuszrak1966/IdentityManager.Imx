@@ -36,6 +36,7 @@ import { ProjectConfig } from 'imx-api-qbm';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PopupSupportWindowComponent } from 'projects/qer/src/lib/support/popup-support-window/popup-support-window.component';
 
+
 @Component({
   selector: 'imx-root',
   templateUrl: './app.component.html',
@@ -115,6 +116,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public goHome(): void {
     this.router.navigate([this.appConfig.Config.routeConfig.start], { queryParams: {} });
+    
   }
 
   private setupRouter(): void {
