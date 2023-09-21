@@ -64,9 +64,17 @@ import { ShoppingCartValidationDetailModule } from './shopping-cart-validation-d
 import { RoleMembershipsModule } from './role-management/role-memberships/role-memberships.module';
 import { MaintenanceBannerComponent } from './wport/start/maintenance-banner/maintenance-banner.component';
 // Newsletter module during training
-import { NewsletterModule } from './newsletter/newsletter.module';
-import { NewsletterFeatureComponent } from './newsletter/newsletter-feature/newsletter-feature.component';
-
+//import { NewsletterModule } from './newsletter/newsletter.module';
+//import { NewsletterFeatureComponent } from './newsletter/newsletter-feature/newsletter-feature.component';
+//
+import { SupportModule } from './support/support.module';
+import { CoeContactFeatureComponent } from './support/coe-contact-feature/coe-contact-feature.component';
+import { NewsletterFeatureComponent } from './support/newsletter-feature/newsletter-feature.component';
+import { InstructionsFeatureComponent } from './support/instructions-feature/instructions-feature.component'; 
+//
+import { InfodialogoiModule } from './infodialogoi/infodialogoi.module';
+import { MatDialogClose, MatDialog, MatDialogContent,MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 export function initConfig(config: QerService): () => Promise<any> {
   return () =>
@@ -89,6 +97,18 @@ const routes: Routes = [
   {
     path: 'newsletter',
     component: NewsletterFeatureComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  {
+    path: 'instructions',
+    component: InstructionsFeatureComponent,
+    canActivate: [RouteGuardService],
+    resolve: [RouteGuardService],
+  },
+  {
+    path: 'coecontact',
+    component: CoeContactFeatureComponent,
     canActivate: [RouteGuardService],
     resolve: [RouteGuardService],
   },
@@ -123,7 +143,10 @@ const routes: Routes = [
     FkAdvancedPickerModule,
     OpsModule,
     DataExplorerViewModule,
-    NewsletterModule, // Adding newsletter module
+    SupportModule,
+    InfodialogoiModule
+     //, // Adding newsletter module
+
   ],
   exports: [StarlingComponent, PasscodeViewerComponent, ObjectOverviewPersonComponent],
   providers: [

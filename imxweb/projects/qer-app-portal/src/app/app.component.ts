@@ -33,6 +33,8 @@ import { AppConfigService,AuthenticationService, ISessionState, MenuItem, System
 import { PendingItemsType, ProjectConfigurationService, UserModelService } from 'qer';
 import { QerProjectConfig } from 'imx-api-qer';
 import { ProjectConfig } from 'imx-api-qbm';
+import { MatDialog} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'imx-root',
@@ -111,6 +113,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public goHome(): void {
     this.router.navigate([this.appConfig.Config.routeConfig.start], { queryParams: {} });
+    
   }
 
   private setupRouter(): void {
@@ -135,4 +138,5 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     }));
   }
+  
 }

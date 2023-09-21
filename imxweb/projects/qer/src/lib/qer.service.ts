@@ -65,7 +65,7 @@ export class QerService {
   }
 
   /** This method defines the menu structure for the portal. */
-  private setupMenu(): void {
+  //private setupMenu(): void {
     // this.menuService.addMenuFactories(
     //   //TODO later #206706
     //   (preProps: string[], __: string[]) => {
@@ -82,5 +82,44 @@ export class QerService {
     //     };
     //   }
     // );
+
+    private setupMenu(): void {
+      // Below part is for situation when we'd like to add new item to the list on the left side. Like:
+      // Home, Requests, Attestation, [OTHER]
+    this.menuService.addMenuFactories(
+  
+        (_preProps: string[], __: string[]) => {
+            
+
+            return {
+             id: 'ROOT_OTHER_FEATURES',
+             title: '#LDS#Support',
+             items: [
+              {
+                id: 'NEWSLETTER_FEATURE',
+                route: 'newsletter',
+                title: '#LDS#Newsletter'
+              },
+              {
+                id: 'COEINFORMATION_FEATURE',
+                route: 'coecontact',
+                title: '#LDS#CoE Information'
+              },
+              {
+                id: 'INSTRUCTION_FEATURE',
+                route: 'instructions',
+                title: '#LDS#Instructions'
+              }
+             ],
+             sorting: '3'
+
+
+            };
+        }
+      );
+      ///
+
+      
   }
+  //}
 }
